@@ -292,7 +292,7 @@ describe Rack::UTF8Sanitizer do
     end
 
     it "adjusts content-length when replacing input" do
-      input =  "foo=bla&quux=bar\xED"
+      input =  "foo=bla&quux=bar\u2620"
       @rack_input = StringIO.new input
 
       env = request_env.update("CONTENT_LENGTH" => input.bytesize)
